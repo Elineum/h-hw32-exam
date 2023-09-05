@@ -1,0 +1,21 @@
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: rgb(179, 143, 143);
+  position: sticky;
+  top: 0;
+
+  &__nav-list {
+    display: flex;
+  }
+
+  &__control-panel {
+    display: flex;
+  }
+
+  &__control-list {
+    display: flex;
+  }
+}

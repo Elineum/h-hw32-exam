@@ -1,9 +1,10 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.jsx",
+  entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name]-[fullhash].js",
@@ -14,7 +15,7 @@ module.exports = {
       template: "./src/index.html",
     }),
     new MiniCssExtractPlugin({
-      filename: "[name]-[fullhash].css",
+      filename: "[name].css",
     }),
   ],
   devServer: {
@@ -24,8 +25,18 @@ module.exports = {
     port: 9999,
     historyApiFallback: true,
   },
+  resolve: {
+    extensions: [".tsx", ".ts", ".jsx", ".js"],
+  },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "ts-loader",
+        },
+      },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
@@ -55,6 +66,21 @@ module.exports = {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "images/",
+            },
+          },
+        ],
+      },
     ],
+  },
+  optimization: {
+    minimizer: [new CssMinimizerPlugin()],
   },
 };

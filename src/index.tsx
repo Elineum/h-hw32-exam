@@ -1,18 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { App } from "./App.jsx";
-import { Constructor } from "./components/Constructor/Constructor.jsx";
-import { AboutUs } from "./components/AboutUs/AboutUs.jsx";
-import { Basket } from "./components/Basket/Basket.jsx";
+import { Constructor } from "./components/Constructor/Constructor";
+import { DefaultMain } from "./components/DefaultMain/DefaultMain";
+import { AboutUs } from "./components/AboutUs/AboutUs";
+import { Page404 } from "./components/Page404/Page404";
+import { Basket } from "./components/Basket/Basket";
+import { App } from "./App";
 import "./index.scss";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <div>error</div>,
+    errorElement: <Page404 />,
     children: [
+      {
+        index: true,
+        element: <DefaultMain />,
+      },
       {
         path: "constructor",
         element: <Constructor />,
@@ -29,7 +35,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
