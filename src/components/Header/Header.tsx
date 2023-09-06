@@ -2,24 +2,34 @@ import { Link, NavLink } from "react-router-dom";
 import logoImage from "../../assets/images/logo.png";
 import "./Header.scss";
 
-export const Header = () => {
+type HeaderProps = {
+  userScrollY: number;
+};
+
+export const Header: React.FC<HeaderProps> = ({ userScrollY }) => {
   return (
-    <header className="page-head">
+    <header className={`page-head ${userScrollY > 70 ? "sticky-active" : ""} `}>
       <div className="page-head__icon-wrap">
-        <Link to="/">
+        <Link to="/" className="page-head__icon-link">
           <img src={logoImage} alt="logo" />
         </Link>
       </div>
       <nav className="page-head__nav">
         <ul className="page-head__nav-list">
           <li className="page-head__nav-item">
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/" className="page-head__nav-link">
+              Home
+            </NavLink>
           </li>
           <li className="page-head__nav-item">
-            <NavLink to="/constructor">Constructor</NavLink>
+            <NavLink to="/constructor" className="page-head__nav-link">
+              Constructor
+            </NavLink>
           </li>
           <li className="page-head__nav-item">
-            <NavLink to="/about-us">About Us</NavLink>
+            <NavLink to="/about-us" className="page-head__nav-link">
+              About Us
+            </NavLink>
           </li>
         </ul>
       </nav>
