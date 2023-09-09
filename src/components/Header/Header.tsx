@@ -34,20 +34,29 @@ export const Header: React.FC<HeaderProps> = ({ userScrollY }) => {
         </ul>
       </nav>
       <div className="page-head__control-panel">
-        <input type="text" className="page-head__control-input" />
+        <div className="page-head__input-holder">
+          <input type="text" className="page-head__control-input" />
+          <a href="" className="page-head__search-icon">
+            [i]
+            <img src="" alt="" />
+          </a>
+        </div>
         <ul className="page-head__control-list">
           <li className="page-head__control-item">
             <a href="">
+              [icons]
               <img src="" alt="" />
             </a>
           </li>
           <li className="page-head__control-item">
             <a href="">
+              [icons]
               <img src="" alt="" />
             </a>
           </li>
           <li className="page-head__control-item">
             <a href="">
+              [icons]
               <img src="" alt="" />
             </a>
           </li>

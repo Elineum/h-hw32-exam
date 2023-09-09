@@ -71,7 +71,7 @@ export const Footer: React.FC = () => {
           <div className="page-foot__input-holder">
             <input
               type="text"
-              placeholder="Enter you e-mail *"
+              placeholder="Enter your e-mail *"
               className="page-foot__input"
             />
             <button className="page-foot__button">+</button>
