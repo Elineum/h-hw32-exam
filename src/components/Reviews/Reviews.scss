@@ -1,4 +1,79 @@
 .reviews {
   padding: 125px 0;
-  border: 1px solid black;
+  text-align: center;
+  background-image: url("/src/assets/images/dottedBackground.jpg");
+
+  &__swiper {
+    & .swiper-pagination.swiper-pagination-horizontal {
+      bottom: 0px;
+    }
+
+    & .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      transition: all ease-in-out 0.3s;
+
+      &:hover {
+        background-color: #61ce70;
+      }
+    }
+
+    & .swiper-pagination-bullet-active {
+      background-color: #61ce70;
+    }
+
+    &
+      .swiper-pagination-horizontal.swiper-pagination-bullets
+      .swiper-pagination-bullet {
+      margin: 0 5px;
+    }
+  }
+
+  &__title {
+    color: #151515;
+    font-weight: 600;
+    font-size: 55px;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+  }
+
+  &__swiper-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 30px;
+  }
+
+  &__user-photo {
+    max-width: 90px;
+    height: 90px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__user-message {
+    max-width: 900px;
+    margin-bottom: 20px;
+    color: #777777;
+    font-size: 18px;
+    line-height: 2;
+  }
+
+  &__user-name {
+    font-weight: 600;
+    color: #151515;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  &__user-status {
+    font-family: "Lato", sans-serif;
+    font-size: 15px;
+    color: #76aa6f;
+  }
 }
