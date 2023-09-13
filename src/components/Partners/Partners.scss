@@ -1,0 +1,22 @@
+.partners {
+  padding: 70px 0;
+
+  &__list {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  &__item {
+    display: flex;
+    height: 138px;
+    max-height: 138px;
+    min-width: 190px;
+    padding: 10px 0;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+  }
+}

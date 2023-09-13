@@ -78,8 +78,8 @@ export const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="page-foot__copyright-block container">
-        <div className="page-foot__copyright-content">
+      <div className="page-foot__copyright-block">
+        <div className="page-foot__copyright-content container">
           <div className="page-foot__copyright-text">
             <p>Smoothez — All Right Reserved. © 2021</p>
           </div>

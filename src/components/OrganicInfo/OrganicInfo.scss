@@ -1,10 +1,13 @@
 .organic-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 125px 0;
-  gap: 30px;
   background-image: url("../../assets/images/dottedBackground.jpg");
+
+  &__wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
 
   &__advantages {
     display: flex;

@@ -1,15 +1,11 @@
 @import "/src/assets/scss/mixins";
 
 .page-head {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 15px;
+  padding: 10px 0;
   background-color: white;
   margin-bottom: 35px;
   position: sticky;
+  z-index: 2;
   top: 0;
 
   &.sticky-active {
@@ -23,6 +19,20 @@
   @include media(">=desktop") {
   }
 
+  &__wrap {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__icon-wrap,
+  &__nav,
+  &__control-panel {
+    flex: 1;
+  }
+
   &__icon-link {
     display: flex;
   }
@@ -31,6 +41,7 @@
     display: flex;
     list-style: none;
     gap: 30px;
+    justify-content: center;
   }
 
   &__nav-item {
@@ -55,6 +66,7 @@
     display: flex;
     gap: 60px;
     align-items: center;
+    justify-content: flex-end;
   }
 
   &__input-holder {

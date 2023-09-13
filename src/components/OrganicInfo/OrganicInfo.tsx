@@ -8,47 +8,49 @@ import pshenicaImg from "../../assets/images/advantages-pshenica.png";
 
 export const OrganicInfo: React.FC = () => {
   return (
-    <section className="organic-info container">
-      <div className="organic-info__advantages">
-        <OurAdvantages
-          title="100% ORGANIC"
-          image={barnImg}
-          napravlenie="default"
-        >
-          We make our products from 100% organic and fresh ingredients full of
-          vitamins and nutrients.
-        </OurAdvantages>
-        <span className="organic-info__line"></span>
-        <OurAdvantages
-          title="GOOD FOR HEALTH"
-          image={starImg}
-          napravlenie="default"
-        >
-          Our drinks are exceptionally good for hoosting your health and
-          increasing your energy level.
-        </OurAdvantages>
-      </div>
-      <div className="organic-info__img-wrap">
-        <img src={organicImage} alt="organic-image" />
-      </div>
-      <div className="organic-info__advantages">
-        <OurAdvantages
-          title="NO ADDITIVES"
-          image={fieldsImg}
-          napravlenie="reverse"
-        >
-          Our smoothies, healthy drinks, and energy howls contain no artificial
-          additives, only vital elements.
-        </OurAdvantages>
-        <span className="organic-info__line"></span>
-        <OurAdvantages
-          title="A LOT OF ENERGY"
-          image={pshenicaImg}
-          napravlenie="reverse"
-        >
-          We designed our products as the universal organic energetics that can
-          quench your thirst.
-        </OurAdvantages>
+    <section className="organic-info">
+      <div className="organic-info__wrap container">
+        <div className="organic-info__advantages">
+          <OurAdvantages
+            title="100% ORGANIC"
+            image={barnImg}
+            napravlenie="default"
+          >
+            We make our products from 100% organic and fresh ingredients full of
+            vitamins and nutrients.
+          </OurAdvantages>
+          <span className="organic-info__line"></span>
+          <OurAdvantages
+            title="GOOD FOR HEALTH"
+            image={starImg}
+            napravlenie="default"
+          >
+            Our drinks are exceptionally good for hoosting your health and
+            increasing your energy level.
+          </OurAdvantages>
+        </div>
+        <div className="organic-info__img-wrap">
+          <img src={organicImage} alt="organic-image" />
+        </div>
+        <div className="organic-info__advantages">
+          <OurAdvantages
+            title="NO ADDITIVES"
+            image={fieldsImg}
+            napravlenie="reverse"
+          >
+            Our smoothies, healthy drinks, and energy howls contain no
+            artificial additives, only vital elements.
+          </OurAdvantages>
+          <span className="organic-info__line"></span>
+          <OurAdvantages
+            title="A LOT OF ENERGY"
+            image={pshenicaImg}
+            napravlenie="reverse"
+          >
+            We designed our products as the universal organic energetics that
+            can quench your thirst.
+          </OurAdvantages>
+        </div>
       </div>
     </section>
   );
