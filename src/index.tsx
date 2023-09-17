@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Constructor } from "./components/Constructor/Constructor";
 import { DefaultMain } from "./components/DefaultMain/DefaultMain";
 import { AboutUs } from "./components/AboutUs/AboutUs";
 import { Page404 } from "./components/Page404/Page404";
 import { Basket } from "./components/Basket/Basket";
 import { App } from "./App";
 import "./index.scss";
+import { StoreProvider } from "./store/StoreProvider";
 
 const router = createBrowserRouter([
   {
@@ -18,10 +18,6 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <DefaultMain />,
-      },
-      {
-        path: "constructor",
-        element: <Constructor />,
       },
       {
         path: "about-us",
@@ -37,6 +33,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <StoreProvider>
+      <RouterProvider router={router} />
+    </StoreProvider>
   </React.StrictMode>
 );

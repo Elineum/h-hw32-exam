@@ -82,8 +82,8 @@ export const WhyOrganic: React.FC = () => {
             className="why-organic__swiper"
           >
             {whyOrganicSlider.map((sliderList, index) => (
-              <SwiperSlide>
-                <WhyOrganicSwiperItem {...sliderList} key={index} />
+              <SwiperSlide key={index}>
+                <WhyOrganicSwiperItem {...sliderList} />
               </SwiperSlide>
             ))}
           </Swiper>

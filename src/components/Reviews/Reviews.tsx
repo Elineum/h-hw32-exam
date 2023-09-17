@@ -45,8 +45,8 @@ export const Reviews: React.FC = () => {
           slidesPerView={1}
         >
           {userReviewList.map((sliderList, index) => (
-            <SwiperSlide>
-              <ReviewsSlideItem {...sliderList} key={index} />
+            <SwiperSlide key={index}>
+              <ReviewsSlideItem {...sliderList} />
             </SwiperSlide>
           ))}
         </Swiper>
