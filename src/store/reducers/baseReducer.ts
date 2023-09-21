@@ -1,8 +1,26 @@
-import { createReducer } from "@reduxjs/toolkit";
-import createSetBaseAction from "../actions/createSetBaseAction";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { BaseItem } from "../../globalTypes/storeTypes";
 
-const initialState: { name: string }[] = [];
+const initialState: BaseItem[] = [
+  { name: "Loading...", id: "Loading...", pricePer10ml: 0 },
+];
 
-export default createReducer(initialState, {
-  [createSetBaseAction.type]: (state, action) => [...state, action.payload],
+export const fetchBase = createAsyncThunk("base/fetchAll", async () => {
+  const baseFetch = await fetch("http://localhost:9998/smoothie-base");
+  const base = await baseFetch.json();
+  return base;
 });
+
+const baseSlice = createSlice({
+  name: "base",
+  initialState: initialState,
+  reducers: {
+    setBase: (_, action) => action.payload,
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchBase.fulfilled, (_, action) => action.payload);
+  },
+});
+
+export const { setBase } = baseSlice.actions;
+export default baseSlice.reducer;

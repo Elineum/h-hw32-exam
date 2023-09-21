@@ -1,15 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Outlet } from "react-router";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
 import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
 import { Constructor } from "./components/Constructor/Constructor";
 import { Basket } from "./components/Basket/Basket";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { ReduxStore } from "./globalTypes/storeTypes";
 
 export const App = () => {
+  const useTypedSelector: TypedUseSelectorHook<ReduxStore> = useSelector;
+  const activeModal = useTypedSelector((store) => store.activeModal);
+  const dispatch = useDispatch();
   const [currScrollY, setCurrScrollY] = useState<number>(0);
-  const [activeModalShow, setActiveModalShow] = useState<string>("constructor");
-  const [isModalActive, setIsModalActive] = useState<boolean>(false);
 
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler);
@@ -22,15 +25,15 @@ export const App = () => {
   };
 
   useEffect(() => {
-    setIsModalActive(!isModalActive);
-
-    if (activeModalShow === "constructor" || activeModalShow === "basket") {
-      document.body.style.overflow = "hidden";
+    if (activeModal === "none") {
+      document.body.style.overflow = "auto";
+      document.body.style.paddingRight = "0px";
       return;
     }
 
-    document.body.style.overflow = "auto";
-  }, [activeModalShow]);
+    document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = "17px";
+  }, [activeModal]);
 
   return (
     <>
@@ -38,10 +41,10 @@ export const App = () => {
       <main>
         <Outlet />
       </main>
-      {activeModalShow === "constructor" ? (
-        <Constructor setActiveModal={setActiveModalShow} />
+      {activeModal === "constructor" ? (
+        <Constructor />
       ) : (
-        activeModalShow === "basket" && <Basket />
+        activeModal === "basket" && <Basket />
       )}
       <ScrollToTop userScrollY={currScrollY} />
       <Footer />

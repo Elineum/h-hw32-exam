@@ -1,4 +1,3 @@
-import createSetBaseAction from "../../store/actions/createSetBaseAction";
 import "./HomeTitle.scss";
 
 export const HomeTitle: React.FC = () => {

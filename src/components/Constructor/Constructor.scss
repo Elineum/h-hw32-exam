@@ -13,11 +13,12 @@
   &__window {
     height: 610px;
     background-color: aliceblue;
-    padding: 30px;
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
     gap: 30px;
+    position: relative;
+    max-width: 930px;
   }
 
   &__image {
@@ -27,9 +28,87 @@
     max-width: 450px;
     border: 1px solid black;
     align-self: center;
+    margin-left: 30px;
   }
 
-  &__set {
-    width: 334px;
+  &__content-box {
+    padding: 30px 0;
+  }
+
+  &__settings {
+    min-width: 334px;
+    height: calc(100% - 50px);
+  }
+
+  &__total-price {
+    padding-top: 24px;
+    margin-bottom: 30px;
+  }
+
+  &__list-wrap {
+    font-size: 12px;
+  }
+
+  &__bases-list {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  &__bases-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 12px;
+    max-width: 80px;
+  }
+
+  &__nested-bases {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+    flex-direction: column;
+  }
+
+  &__nested-bases-main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nested-bases-list {
+    list-style: none;
+    display: flex;
+  }
+
+  &__nested-bases-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 12px;
+    max-width: 80px;
+  }
+
+  &__list {
+    text-align: center;
+    font-size: 12px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    height: calc(100% - 130px);
+    overflow-x: scroll;
+    overflow-x: hidden;
+  }
+
+  &__portions {
+    display: flex;
+  }
+
+  &__portion-label {
+    &.active {
+      color: red;
+    }
   }
 }

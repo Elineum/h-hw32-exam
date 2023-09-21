@@ -5,6 +5,7 @@ import { Partners } from "../Partners/Partners";
 import { Reviews } from "../Reviews/Reviews";
 import { Statistics } from "../Statistics/Statistics";
 import { Subscribe } from "../Subscribe/Subscribe";
+import { Templates } from "../Templates/Templates";
 import { WhyOrganic } from "../WhyOrganic/WhyOrganic";
 import "./DefaultMain.scss";
 
@@ -13,6 +14,7 @@ export const DefaultMain: React.FC = () => {
     <>
       <HomeTitle />
       <OrganicInfo />
+      <Templates />
       <Statistics />
       <WhyOrganic />
       <Reviews />

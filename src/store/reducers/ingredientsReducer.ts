@@ -1,11 +1,36 @@
-import { createReducer } from "@reduxjs/toolkit";
-import createSetIngredientsAction from "../actions/createSetIngredientsAction";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { IngredientItem } from "../../globalTypes/storeTypes";
 
-const initialState: { name: string }[] = [];
+const initialState: IngredientItem[] = [
+  {
+    id: "Loading...",
+    image: "Loading...",
+    name: "Loading...",
+    pricePer10g: 0,
+  },
+];
 
-export default createReducer(initialState, {
-  [createSetIngredientsAction.type]: (state, action) => [
-    ...state,
-    action.payload,
-  ],
+export const fetchIngredients = createAsyncThunk(
+  "ingredients/fetchAll",
+  async () => {
+    const ingredientsFetch = await fetch(
+      "http://localhost:9998/smoothie-ingredients"
+    );
+    const ingredients = await ingredientsFetch.json();
+    return ingredients;
+  }
+);
+
+const ingredientsSlice = createSlice({
+  name: "ingredients",
+  initialState: initialState,
+  reducers: {
+    setIngredients: (_, action) => action.payload,
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchIngredients.fulfilled, (_, action) => action.payload);
+  },
 });
+
+export const { setIngredients } = ingredientsSlice.actions;
+export default ingredientsSlice.reducer;
