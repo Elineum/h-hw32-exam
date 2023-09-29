@@ -8,6 +8,7 @@ import { Basket } from "./components/Basket/Basket";
 import { App } from "./App";
 import "./index.scss";
 import { StoreProvider } from "./store/StoreProvider";
+import { Constructor } from "./components/Constructor/Constructor";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <DefaultMain />,
+      },
+      {
+        path: "constructor",
+        element: <Constructor />,
       },
       {
         path: "about-us",

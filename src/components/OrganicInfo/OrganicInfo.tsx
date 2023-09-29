@@ -1,10 +1,11 @@
-import "./OrganicInfo.scss";
-import organicImage from "../../assets/images/organicSmoothie.png";
 import { OurAdvantages } from "../OurAdvantages/OurAdvantages";
-import barnImg from "../../assets/images/advantages-barn.png";
-import starImg from "../../assets/images/advantages-star.png";
-import fieldsImg from "../../assets/images/advantages-fields.png";
-import pshenicaImg from "../../assets/images/advantages-pshenica.png";
+import "./OrganicInfo.scss";
+
+const organicImageSrc = "/static/images/organicSmoothie.png";
+const barnImgSrc = "/static/images/advantages-barn.png";
+const starImgSrc = "/static/images/advantages-star.png";
+const fieldsImgSrc = "/static/images/advantages-fields.png";
+const wheatImgSrc = "/static/images/advantages-wheat.png";
 
 export const OrganicInfo: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ export const OrganicInfo: React.FC = () => {
         <div className="organic-info__advantages">
           <OurAdvantages
             title="100% ORGANIC"
-            image={barnImg}
+            image={barnImgSrc}
             napravlenie="default"
           >
             We make our products from 100% organic and fresh ingredients full of
@@ -22,7 +23,7 @@ export const OrganicInfo: React.FC = () => {
           <span className="organic-info__line"></span>
           <OurAdvantages
             title="GOOD FOR HEALTH"
-            image={starImg}
+            image={starImgSrc}
             napravlenie="default"
           >
             Our drinks are exceptionally good for hoosting your health and
@@ -30,12 +31,12 @@ export const OrganicInfo: React.FC = () => {
           </OurAdvantages>
         </div>
         <div className="organic-info__img-wrap">
-          <img src={organicImage} alt="organic-image" />
+          <img src={organicImageSrc} alt="organic-image" />
         </div>
         <div className="organic-info__advantages">
           <OurAdvantages
             title="NO ADDITIVES"
-            image={fieldsImg}
+            image={fieldsImgSrc}
             napravlenie="reverse"
           >
             Our smoothies, healthy drinks, and energy howls contain no
@@ -44,7 +45,7 @@ export const OrganicInfo: React.FC = () => {
           <span className="organic-info__line"></span>
           <OurAdvantages
             title="A LOT OF ENERGY"
-            image={pshenicaImg}
+            image={wheatImgSrc}
             napravlenie="reverse"
           >
             We designed our products as the universal organic energetics that

@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import "./Gallery.scss";
 
 const tabsData = [

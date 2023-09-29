@@ -1,5 +1,5 @@
-import "./Statistics.scss";
 import { StatisticsItem } from "./StatisticsItem";
+import "./Statistics.scss";
 
 const mockData = [
   { number: 245, text: "New drinks and smoothies" },

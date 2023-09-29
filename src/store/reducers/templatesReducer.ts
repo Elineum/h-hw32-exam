@@ -3,29 +3,21 @@ import { TemplateItem } from "../../globalTypes/storeTypes";
 
 const initialState: TemplateItem[] = [
   {
-    name: "Loading...",
-    id: "Loading...",
-    image: "Loading...",
-    baseRatioPercent: 0,
-    base: [
-      {
-        id: "Loading...",
-        basePercentage: 0,
-      },
-    ],
-    ingredients: [
-      {
-        id: "Loading...",
-        amountPercent: 0,
-      },
-    ],
+    name: "Empty",
+    id: "empty",
+    ingredients: {
+      fruits: [{ id: "fru-empty", amountPercent: 0 }],
+      vegetables: [{ id: "veg-empty", amountPercent: 0 }],
+    },
   },
 ];
 
 export const fetchTemplates = createAsyncThunk(
   "templates/fetchAll",
   async () => {
-    const templatesFetch = await fetch("http://localhost:9998/smoothie-list");
+    const templatesFetch = await fetch(
+      "http://localhost:9998/smoothie-templates"
+    );
     const templates = await templatesFetch.json();
     return templates;
   }

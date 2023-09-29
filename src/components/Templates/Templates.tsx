@@ -1,9 +1,8 @@
-import React from "react";
-import "./Templates.scss";
-import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { TypedUseSelectorHook, useSelector } from "react-redux";
 import { ReduxStore } from "../../globalTypes/storeTypes";
 import { TemplateItem } from "./TemplatesItem";
 import { v4 as getUniqId } from "uuid";
+import "./Templates.scss";
 
 export const Templates = () => {
   const useTypedSelector: TypedUseSelectorHook<ReduxStore> = useSelector;

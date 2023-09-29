@@ -1,51 +1,32 @@
 export default {
-  base: [{ name: "Loading...", id: "Loading..." }],
-  ingredients: [
-    {
-      id: "Loading...",
-      image: "Loading...",
-      name: "Loading...",
-      pricePer10g: 0,
-    },
-  ],
-  portions: [{ name: "Loading...", id: "Loading...", size: 0 }],
-  templates: [
-    {
-      name: "Loading...",
-      id: "Loading...",
-      image: "Loading...",
-      baseRatioPercent: 0,
-      base: [
-        {
-          id: "Loading...",
-          basePercentage: 0,
-        },
-      ],
-      ingredients: [
-        {
-          id: "Loading...",
-          amountPercent: 0,
-        },
-      ],
-    },
-  ],
-  currentSetup: {
-    name: "Loading...",
-    id: "Loading...",
-    image: "Loading...",
-    baseRatioPercent: 0,
-    base: [
+  ingredients: {
+    fruits: [
       {
-        id: "Loading...",
-        basePercentage: 0,
+        id: "empty",
+        inStock: false,
+        name: "Empty",
+        literPrice: 0,
       },
     ],
-    ingredients: [
+    vegetables: [
       {
-        id: "Loading...",
-        amountPercent: 0,
+        id: "empty",
+        inStock: false,
+        name: "Empty",
+        literPrice: 0,
       },
     ],
   },
-  activeModal: "none",
+  portions: [{ name: "Loading...", id: "Loading...", size: 0 }],
+  templates: [
+    {
+      name: "Empty",
+      id: "empty",
+      ingredients: {
+        fruits: [{ id: "fru-empty", amountPercent: 0 }],
+        vegetables: [{ id: "veg-empty", amountPercent: 0 }],
+      },
+    },
+  ],
+  templateIngredients: [],
 };

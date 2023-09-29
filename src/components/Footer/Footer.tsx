@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import logoImage from "../../assets/images/logo.png";
 import "./Footer.scss";
+
+const logoImgSrc = "/static/images/logo.png";
 
 export const Footer: React.FC = () => {
   return (
@@ -8,7 +9,7 @@ export const Footer: React.FC = () => {
       <div className="page-foot__content-block container">
         <div className="page-foot__common-info">
           <Link to="/" className="page-foot__logo-link">
-            <img src={logoImage} alt="logo" />
+            <img src={logoImgSrc} alt="logo" />
           </Link>
           <div className="page-foot__schedule">
             <p className="page-foot__schedule-text">

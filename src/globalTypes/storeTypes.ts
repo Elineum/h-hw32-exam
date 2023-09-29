@@ -1,14 +1,12 @@
-export type BaseItem = {
-  name: string;
-  id: string;
-  pricePer10ml: number;
-};
-
 export type IngredientItem = {
   id: string;
-  image: string;
+  inStock: boolean;
   name: string;
-  pricePer10g: number;
+  literPrice: number;
+};
+
+export type IngredientList = {
+  [category: string]: IngredientItem[];
 };
 
 export type PortionItem = {
@@ -17,43 +15,32 @@ export type PortionItem = {
   size: number;
 };
 
+export type TemplateIngredientItem = {
+  id: string;
+  amountPercent: number;
+};
+
 export type TemplateItem = {
   name: string;
   id: string;
-  image: string;
-  baseRatioPercent: number;
-  base: {
-    id: string;
-    basePercentage: number;
-  }[];
   ingredients: {
-    id: string;
-    amountPercent: number;
-  }[];
+    fruits: TemplateIngredientItem[];
+    vegetables: TemplateIngredientItem[];
+  };
 };
 
-export type CurrentBaseItem = {
-  id: string;
-  basePercentage: number;
-};
-
-export type CurrentSetupItem = {
+export type ConstuctorIngredientItem = {
   name: string;
   id: string;
-  image: string;
-  baseRatio: number;
-  base: CurrentBaseItem[];
-  ingredients: {
-    id: string;
-    amountPercent: number;
-  }[];
+  inStock: boolean;
+  literPrice: number;
+  fieldId: string;
+  amount: number;
 };
 
 export type ReduxStore = {
-  base: BaseItem[];
-  ingredients: IngredientItem[];
+  ingredients: IngredientList;
   portions: PortionItem[];
   templates: TemplateItem[];
-  currentSetup: CurrentSetupItem;
-  activeModal: string;
+  templateIngredients: ConstuctorIngredientItem[];
 };

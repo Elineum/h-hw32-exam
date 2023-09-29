@@ -1,26 +1,19 @@
 import { Link, NavLink } from "react-router-dom";
-import logoImage from "../../assets/images/logo.png";
 import "./Header.scss";
-import { useDispatch } from "react-redux";
-import { setModal } from "../../store/reducers/modalReducer";
+
+const logoImgSrc = "/static/images/logo.png";
 
 type HeaderProps = {
   userScrollY: number;
 };
 
 export const Header: React.FC<HeaderProps> = ({ userScrollY }) => {
-  const dispatch = useDispatch();
-
-  const openConstructor = () => {
-    dispatch(setModal("constructor"));
-  };
-
   return (
     <header className={`page-head ${userScrollY > 70 ? "sticky-active" : ""} `}>
       <div className="page-head__wrap container">
         <div className="page-head__icon-wrap">
           <Link to="/" className="page-head__icon-link">
-            <img src={logoImage} alt="logo" />
+            <img src={logoImgSrc} alt="logo" />
           </Link>
         </div>
         <nav className="page-head__nav">
@@ -30,8 +23,10 @@ export const Header: React.FC<HeaderProps> = ({ userScrollY }) => {
                 Home
               </NavLink>
             </li>
-            <li className="page-head__nav-item" onClick={openConstructor}>
-              <span className="page-head__nav-link">Constructor</span>
+            <li className="page-head__nav-item">
+              <NavLink to="/constructor" className="page-head__nav-link">
+                Constructor
+              </NavLink>
             </li>
             <li className="page-head__nav-item">
               <NavLink to="/about-us" className="page-head__nav-link">

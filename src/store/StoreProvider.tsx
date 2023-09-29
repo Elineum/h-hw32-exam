@@ -1,15 +1,13 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import logger from "redux-logger";
-import currentSetupReducer from "./reducers/currentSetupReducer";
 import ingredientsReducer from "./reducers/ingredientsReducer";
 import templatesReducer from "./reducers/templatesReducer";
 import portionsReducer from "./reducers/portionsReducer";
-import baseReducer from "./reducers/baseReducer";
 import { stateInitialSetter } from "./utils/stateChecker";
 import initialStoreValue from "./initialStoreValue";
 import { ReduxStore } from "../globalTypes/storeTypes";
-import modalReducer from "./reducers/modalReducer";
+import templateIngredientsReducer from "./reducers/templateIngredientsReducer";
 
 type StoreProviderProps = {
   children: React.ReactNode;
@@ -22,12 +20,10 @@ const parsedData: ReduxStore =
 
 export const store = configureStore({
   reducer: {
-    base: baseReducer,
     ingredients: ingredientsReducer,
     portions: portionsReducer,
     templates: templatesReducer,
-    currentSetup: currentSetupReducer,
-    activeModal: modalReducer,
+    templateIngredients: templateIngredientsReducer,
   },
   preloadedState: parsedData,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),

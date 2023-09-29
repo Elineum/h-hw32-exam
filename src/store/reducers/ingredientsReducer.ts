@@ -1,21 +1,29 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IngredientItem } from "../../globalTypes/storeTypes";
+import { IngredientList } from "../../globalTypes/storeTypes";
 
-const initialState: IngredientItem[] = [
-  {
-    id: "Loading...",
-    image: "Loading...",
-    name: "Loading...",
-    pricePer10g: 0,
-  },
-];
+const initialState: IngredientList = {
+  fruits: [
+    {
+      id: "empty",
+      inStock: false,
+      name: "Empty",
+      literPrice: 0,
+    },
+  ],
+  vegetables: [
+    {
+      id: "empty",
+      inStock: false,
+      name: "Empty",
+      literPrice: 0,
+    },
+  ],
+};
 
 export const fetchIngredients = createAsyncThunk(
   "ingredients/fetchAll",
   async () => {
-    const ingredientsFetch = await fetch(
-      "http://localhost:9998/smoothie-ingredients"
-    );
+    const ingredientsFetch = await fetch("http://localhost:9998/ingredients");
     const ingredients = await ingredientsFetch.json();
     return ingredients;
   }

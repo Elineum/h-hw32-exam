@@ -1,9 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { PortionItem } from "../../globalTypes/storeTypes";
 
-const initialState: PortionItem[] = [
-  { name: "Loading...", id: "Loading...", size: 0 },
-];
+const initialState: PortionItem[] = [{ name: "Empty", id: "empty", size: 0 }];
 
 export const fetchPortionSize = createAsyncThunk(
   "portionsSize/fetchAll",
