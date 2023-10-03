@@ -5,21 +5,22 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.tsx",
+  entry: "./client/src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name]-[fullhash].js",
     clean: true,
+    publicPath: "/",
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./client/src/index.html",
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: "[name]-[fullhash].css",
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: "static", to: "static" }],
+      patterns: [{ from: "client/static", to: "static" }],
     }),
   ],
   devServer: {
