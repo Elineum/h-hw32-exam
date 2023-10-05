@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  ReduxStore,
-  TemplateItem as TemplateItemType,
-} from "../../globalTypes/storeTypes";
+import { TemplateItem as TemplateItemType } from "../../globalTypes/storeTypes";
 import { useDispatch } from "react-redux";
 import { addBasketItem } from "../../store/reducers/basketReducer";
 

@@ -46,14 +46,14 @@
   }
 
   &__user-photo {
-    max-width: 90px;
-    height: 90px;
     margin-bottom: 20px;
     border-radius: 50%;
-    border: 1px solid black;
     display: flex;
     justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
     align-items: center;
+    max-width: 150px;
   }
 
   &__user-message {

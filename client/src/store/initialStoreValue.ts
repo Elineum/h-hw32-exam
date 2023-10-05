@@ -17,11 +17,25 @@ export default {
       },
     ],
   },
-  portions: [{ name: "Loading...", id: "Loading...", size: 0 }],
-  templates: [],
+  portions: [{ name: "Empty", id: "empty", size: 0 }],
+  templates: [
+    {
+      name: "Loading...",
+      portionSize: 200,
+      ingredients: [],
+      imageSrc: "",
+      itemId: "id",
+      count: 1,
+    },
+  ],
   templateIngredients: [],
   basket: {
     items: [],
     isBasketOpen: false,
+  },
+  userData: {
+    userName: "Empty",
+    userTel: "Empty",
+    deliveryType: "Empty",
   },
 };

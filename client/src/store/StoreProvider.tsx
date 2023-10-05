@@ -30,6 +30,7 @@ export const store = configureStore({
     userData: userDataReducer,
   },
   preloadedState: parsedData,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 stateInitialSetter();

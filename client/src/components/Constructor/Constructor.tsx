@@ -16,6 +16,7 @@ import {
 } from "../../store/reducers/templateIngredientsReducer";
 import { addBasketItem } from "../../store/reducers/basketReducer";
 import { ConstructorAlert } from "./ConstructorAlert";
+import calculatePrice from "../../utils/calculatePrice";
 
 const customSmoothieImgSrc = "/static/images/customSmoothie1.jpg";
 
@@ -56,13 +57,7 @@ export const Constructor = () => {
     useState<boolean>(false);
 
   useEffect(() => {
-    setTotalPrice(
-      templateIngredients.reduce(
-        (accum, ingredient) =>
-          accum + (ingredient.amount / 1000) * ingredient.literPrice,
-        0
-      )
-    );
+    setTotalPrice(calculatePrice(templateIngredients));
   }, [templateIngredients]);
 
   useEffect(() => {
@@ -227,8 +222,7 @@ export const Constructor = () => {
                         id === currentPortion.id ? "active" : ""
                       }`}
                     >
-                      {name}, {size < 1000 ? size : size / 1000}{" "}
-                      {size < 1000 ? "ml" : "liter"}
+                      {name}, {size} ml
                     </label>
                     <input
                       type="radio"
@@ -293,11 +287,7 @@ export const Constructor = () => {
             <div className="constructor__template-detail">
               <h2 className="constructor__template-title">Custom Smoothie</h2>
               <span className="constructor__template-portion">
-                Portion:{" "}
-                {currentPortion.size < 1000
-                  ? currentPortion.size
-                  : currentPortion.size / 1000}
-                {currentPortion.size < 1000 ? " ml" : " liter"}
+                Portion: {currentPortion.size} ml
               </span>
               <span className="constructor__template-ingredients">
                 Ingredients:{" "}

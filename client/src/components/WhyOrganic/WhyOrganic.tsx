@@ -40,24 +40,6 @@ const whyOrganicCards = [
   },
 ];
 
-const whyOrganicSlider = [
-  {
-    imageSrc: "",
-    title: "CHILI MANGO",
-    price: 23,
-  },
-  {
-    imageSrc: "",
-    title: "BANANA BERRY",
-    price: 13,
-  },
-  {
-    imageSrc: "",
-    title: "AURORE GRAPE",
-    price: 20,
-  },
-];
-
 export const WhyOrganic: React.FC = () => {
   const useTypedSelector: TypedUseSelectorHook<ReduxStore> = useSelector;
   const templates = useTypedSelector((state) => state.templates);

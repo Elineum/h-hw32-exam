@@ -9,27 +9,31 @@ const tabsData = [
 
 const tabContent = [
   {
-    text: 1,
+    imgSrc: "/static/images/gallery-photo-1.jpg",
     filter: "fruits",
   },
   {
-    text: 2,
+    imgSrc: "/static/images/gallery-photo-2.jpg",
     filter: "fruits",
   },
   {
-    text: 3,
+    imgSrc: "/static/images/gallery-photo-3.jpg",
     filter: "fruits",
   },
   {
-    text: 4,
+    imgSrc: "/static/images/gallery-photo-4.jpg",
     filter: "vegetables",
   },
   {
-    text: 5,
+    imgSrc: "/static/images/gallery-photo-5.jpg",
     filter: "vegetables",
   },
   {
-    text: 6,
+    imgSrc: "/static/images/gallery-photo-6.jpg",
+    filter: "vegetables",
+  },
+  {
+    imgSrc: "/static/images/gallery-photo-7.jpg",
     filter: "vegetables",
   },
 ];
@@ -37,7 +41,7 @@ const tabContent = [
 export const Gallery: React.FC = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
   const [tabCurrContent, setTabCurrContent] =
-    useState<{ text: number; filter: string }[]>(tabContent);
+    useState<{ imgSrc: string; filter: string }[]>(tabContent);
 
   const handleTabClick = (index: number) => {
     setActiveTab(index);
@@ -70,9 +74,9 @@ export const Gallery: React.FC = () => {
           ))}
         </ul>
         <div className="gallery__photos-box">
-          {tabCurrContent.map(({ text }, index) => (
+          {tabCurrContent.map(({ imgSrc }, index) => (
             <div className="gallery__box" key={index}>
-              {text}
+              <img src={imgSrc} alt="image-description" />
             </div>
           ))}
         </div>

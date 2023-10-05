@@ -11,9 +11,6 @@ export const WhyOrganicCard: React.FC<WhyOrganicCardProrps> = ({
 }) => {
   return (
     <div className="why-organic__card">
-      <div className="why-organic__card-img">
-        <img src="#" alt="[i]" />
-      </div>
       <div>
         <h3 className="why-organic__card-title">{title}</h3>
         <div className="why-organic__card-text">

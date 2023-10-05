@@ -34,7 +34,8 @@ const templateIngredientsSlice = createSlice({
         0
       );
 
-      const ingredientCoef = action.payload / totalMultiples;
+      const ingredientCoef =
+        Math.round((action.payload / totalMultiples) * 100) / 100;
 
       return state.map((ingredient) => ({
         ...ingredient,

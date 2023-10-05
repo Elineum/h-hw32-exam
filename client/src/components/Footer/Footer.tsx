@@ -39,19 +39,19 @@ export const Footer: React.FC = () => {
           <h2 className="page-foot__contacts-title">Contacts</h2>
           <ul className="page-foot__contacts-list">
             <li className="page-foot__contacts-item">
-              <span>[icons]</span>
+              <span className="page-foot__contact-icon">[icons]</span>
               <span className="page-foot__contact-text">
                 523 Sylvan Ave, 5th Floor Mountain View, CA 94041 USA
               </span>
             </li>
             <li className="page-foot__contacts-item">
-              <span>[icons]</span>
+              <span className="page-foot__contact-icon">[icons]</span>
               <a href="tel:123-456-7890" className="page-foot__contact-text">
                 123-456-7890
               </a>
             </li>
             <li className="page-foot__contacts-item">
-              <span>[icons]</span>
+              <span className="page-foot__contact-icon">[icons]</span>
               <a
                 href="mailto:info@demolink.org"
                 className="page-foot__contact-text"

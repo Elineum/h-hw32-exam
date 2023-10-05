@@ -2,19 +2,19 @@ import "./Partners.scss";
 
 const PARTNERS_LIST = [
   {
-    partnerImage: "#",
+    partnerImage: "/static/images/brands-1.png",
   },
   {
-    partnerImage: "#",
+    partnerImage: "/static/images/brands-2.png",
   },
   {
-    partnerImage: "#",
+    partnerImage: "/static/images/brands-3.png",
   },
   {
-    partnerImage: "#",
+    partnerImage: "/static/images/brands-4.png",
   },
   {
-    partnerImage: "#",
+    partnerImage: "/static/images/brands-5.png",
   },
 ];
 

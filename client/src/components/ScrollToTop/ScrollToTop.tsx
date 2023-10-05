@@ -15,6 +15,8 @@ export const ScrollToTop: React.FC<ScrollToTopProps> = ({ userScrollY }) => {
     <div
       onClick={scrollToTop}
       className={`scroll-to-top ${userScrollY > 200 ? "to-top-active" : ""}`}
-    ></div>
+    >
+      {">"}
+    </div>
   );
 };
