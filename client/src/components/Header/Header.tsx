@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { openBasket } from "../../store/reducers/basketReducer";
@@ -15,6 +16,14 @@ export const Header: React.FC<HeaderProps> = ({ userScrollY }) => {
   const useTypedSelector: TypedUseSelectorHook<ReduxStore> = useSelector;
   const basketItems = useTypedSelector((state) => state.basket.items);
   const dispatch = useDispatch();
+  const [basketCounts, setBasketCounts] = useState<number>(0);
+
+  useEffect(() => {
+    const currentCount = basketItems.reduce((acc, { count }) => acc + count, 0);
+
+    setBasketCounts(currentCount);
+  }, [basketItems]);
+
   const basketOpenHandler = () => {
     dispatch(openBasket());
   };
@@ -49,9 +58,7 @@ export const Header: React.FC<HeaderProps> = ({ userScrollY }) => {
         <div className="page-head__control-panel">
           <div className="page-head__basket" onClick={basketOpenHandler}>
             <img src={basketImgSrc} alt="basket" />
-            <span className="page-head__basket-count">
-              {basketItems.length}
-            </span>
+            <span className="page-head__basket-count">{basketCounts}</span>
           </div>
         </div>
       </div>

@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { TemplateItem as TemplateItemType } from "../../globalTypes/storeTypes";
-import { useDispatch } from "react-redux";
-import { addBasketItem } from "../../store/reducers/basketReducer";
+import {
+  ReduxStore,
+  TemplateItem as TemplateItemType,
+} from "../../globalTypes/storeTypes";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import {
+  addBasketItem,
+  addItemCount,
+} from "../../store/reducers/basketReducer";
 
 export const TemplateItem: React.FC<TemplateItemType> = ({
   name,
@@ -11,6 +17,8 @@ export const TemplateItem: React.FC<TemplateItemType> = ({
   itemId,
   count,
 }) => {
+  const useTypedSelector: TypedUseSelectorHook<ReduxStore> = useSelector;
+  const basketItems = useTypedSelector((state) => state.basket.items);
   const dispatch = useDispatch();
   const [currentPrice, setCurrentPrice] = useState<number>(0);
 
@@ -28,17 +36,23 @@ export const TemplateItem: React.FC<TemplateItemType> = ({
   }, []);
 
   const addToBasket = () => {
-    dispatch(
-      addBasketItem({
-        name,
-        portionSize,
-        ingredients,
-        imageSrc,
-        itemId,
-        price: currentPrice,
-        count,
-      })
-    );
+    const existedSmoothie = basketItems.find((item) => item.itemId === itemId);
+
+    if (existedSmoothie) {
+      dispatch(addItemCount(itemId));
+    } else {
+      dispatch(
+        addBasketItem({
+          name,
+          portionSize,
+          ingredients,
+          imageSrc,
+          itemId,
+          price: currentPrice,
+          count,
+        })
+      );
+    }
   };
 
   return (
