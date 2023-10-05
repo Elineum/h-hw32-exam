@@ -8,7 +8,9 @@ const secondImageSrc = "/static/images/about-us-2.jpg";
 export const AboutUs: React.FC = () => {
   return (
     <>
-      <PageIntro title="about us" text="Some lorems" />
+      <PageIntro title="about us">
+        Get to know us as a team better and learn about our life in this bar
+      </PageIntro>
       <RoutePath />
       <section className="about-us">
         <div className="container">

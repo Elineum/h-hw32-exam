@@ -8,6 +8,7 @@
   width: 100%;
   position: relative;
   z-index: 1;
+  background-position: center;
 
   & .container {
     display: flex;
@@ -38,6 +39,7 @@
   &__text {
     font-size: 18px;
     line-height: 1.66667;
-    max-width: 640px;
+    max-width: 500px;
+    text-align: center;
   }
 }

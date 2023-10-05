@@ -204,7 +204,10 @@ export const Constructor = () => {
 
   return (
     <>
-      <PageIntro title="constructor" text="lorem some lorem" />
+      <PageIntro title="constructor">
+        Here you can create your own smoothie from the ingredients you are
+        interested in
+      </PageIntro>
       <RoutePath />
       <section className="constructor">
         <div className="container">
